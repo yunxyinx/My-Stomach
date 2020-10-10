@@ -4,6 +4,7 @@
     Author     : yunxyinx
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,11 +13,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="Time" method="POST">
-             <label for="appt">Select a time:</label>
-            <input type="time" id="appt" name="appt">
+        <form action="SetAlarm" method="POST">
             
-            <input type="submit">
+            <table id="myTable">
+                <tr>
+                    <td><label for="appt" name="breakfast">Breakfast: </label>
+                        <input type="time" id="appt" name="time"></td>
+                    <td><select name="foods" id="foods">
+                            <option type="dorpbox" name="foods" value="Sushi"/>Sushi
+                            <option type="dorpbox" name="foods" value="Rice"/>Rice
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label for="appt" name="breakfast">Breakfast: </label>
+                        <input type="time" id="appt" name="time"></td>
+                    <td><select name="foods" id="foods">
+                            <option type="dorpbox" name="foods" value="Sushi"/>Sushi
+                            <option type="dorpbox" name="foods" value="Rice"/>Rice
+                        </select></td>
+                </tr>
+            </table>
+
+            <input type="submit"/>
+            
         </form>
     </body>
 </html>
