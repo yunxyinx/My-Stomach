@@ -17,11 +17,11 @@
                 <td>
                     ${sa.time}
                     ${sa.foods}
+                    <br>
+                    ${sa1.time}
+                    ${sa1.foods}
                 </td>
             </tr></table>
-        <br>
-        ${sa.time}
-        ${sa.foods}
     <c:forEach items="${sa.time}" <br>
     </c:forEach> 
 </body>

@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Model.Calories;
 import Model.SetAlarm;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,10 +34,21 @@ public class SetAlarmServlet extends HttpServlet {
             throws ServletException, IOException {
         LocalTime time = LocalTime.now();
         SetAlarm sa = new SetAlarm();
-        
+        SetAlarm sa1 = new SetAlarm();
+
         sa.setFoods(request.getParameter("foods"));
+        sa1.setFoods(request.getParameter("foods1"));
         sa.setTime(request.getParameter("time"));
+        sa1.setTime(request.getParameter("time1"));
         request.setAttribute("sa", sa);
+        request.setAttribute("sa1", sa1);
+        
+        Calories cal = new Calories();
+        System.out.println("----------" + cal.getMeal());
+        String meal = request.getParameter("meal");
+        int m = Integer.parseInt(meal);
+        request.setAttribute("meal", meal);
+        
         request.getRequestDispatcher("/Plan.jsp").forward(request, response);
     }
 
