@@ -9,16 +9,14 @@ package Model;
  *
  * @author yunxyinx
  */
-public class SetAlarm {
+public class Time {
     private String Time;
-    private String foods;
 
-    public SetAlarm() {
+    public Time() {
     }
 
-    public SetAlarm(String Time, String foods) {
+    public Time(String Time) {
         this.Time = Time;
-        this.foods = foods;
     }
 
     public String getTime() {
@@ -27,14 +25,6 @@ public class SetAlarm {
 
     public void setTime(String Time) {
         this.Time = Time;
-    }
-
-    public String getFoods() {
-        return foods;
-    }
-
-    public void setFoods(String foods) {
-        this.foods = foods;
     }
 
     
