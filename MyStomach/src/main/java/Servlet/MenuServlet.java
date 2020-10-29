@@ -6,7 +6,6 @@
 package Servlet;
 
 import Entity.Menu;
-import static java.awt.SystemColor.menu;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.util.Collections.list;
@@ -40,24 +39,16 @@ public class MenuServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestJpaMenuPU");
         EntityManager em = emf.createEntityManager();
-
+        
         Query all = em.createNamedQuery("Menu.findAll");
         Query name = em.createNamedQuery("Menu.findByFood");
-        //String dollar = request.getParameter("food");
 
         String sql = " SELECT m FROM Menu m WHERE m.food like :food ";
         Query food = em.createQuery(sql);
-        food.setParameter("food", "ข้าว%");
-
-        List<Menu> listName = food.getResultList();
-        for (Menu listMenu : listName) {
-            System.out.println(listMenu.getFood());
-            request.setAttribute("listMenu", listMenu);
-            
-        }
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/SetAlarm.jsp");
-        dispatcher.forward(request, response);
+        food.setParameter("food" , "ข้าว%");
+        request.setAttribute("listMenu", food.getResultList());
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/SetAlarm.jsp");
+            dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,7 +78,6 @@ public class MenuServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**

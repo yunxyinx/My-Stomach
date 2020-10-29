@@ -31,11 +31,11 @@
         <label for="appt" name="breakfast">Break: </label>
         <input type="time" id="appt" name="time">
         
-        <from action="MenuServlet" method="get">
+        <from action="Menu" method="get">
         <select name="menu">
-            <option value="${listMenu.menuID}">${listMenu.food}</option>
-            <option value="${listMenu.menuID}">${listMenu.food}</option>
-            <option value="${listMenu.menuID}">${listMenu.food}</option>
+            <c:forEach items="${listMenu}" var="menu">
+            <option>${menu.food}</option>
+        </c:forEach>
             </select>
 
         <br>
