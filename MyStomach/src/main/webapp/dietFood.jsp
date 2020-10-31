@@ -3,8 +3,8 @@
     Created on : 25 ต.ค. 2020, 22:18:50
     Author     : yunxyinx
 --%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>   
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,8 +16,7 @@
     <center>
         <h1>อาหารลดน้ำหนัก</h1>
         
-        select * from menu where category)_categoryID = 2;
-        <p><a href="Category">Back</a></p>
+        <p><a href ="Category.jsp">Back</a></p>
     </center>
     </body>
 </html>

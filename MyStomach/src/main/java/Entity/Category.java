@@ -47,7 +47,7 @@ public class Category implements Serializable {
     private String categoryName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categorycategoryID")
     private List<Menu> menuList;
-
+    
     public Category() {
     }
 
