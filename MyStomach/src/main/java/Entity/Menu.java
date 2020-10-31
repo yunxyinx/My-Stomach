@@ -119,7 +119,7 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Menu[ menuID=" + menuID + " ]";
+        return "Entity.Menu[ menuID=" + menuID + ", food=" + food +", calorie"+ calorie + " ]";
     }
     
 }

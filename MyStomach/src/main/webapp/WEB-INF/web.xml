@@ -4,9 +4,41 @@
         <servlet-name>SetAlarmServlet</servlet-name>
         <servlet-class>Servlet.SetAlarmServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MenuServlet</servlet-name>
+        <servlet-class>Servlet.MenuServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>Servlet.ListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>Servlet.CategoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategorieServlet</servlet-name>
+        <servlet-class>Servlet.CategorieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SetAlarmServlet</servlet-name>
         <url-pattern>/SetAlarm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/Menu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/List</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/Category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategorieServlet</servlet-name>
+        <url-pattern>/Categorie</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

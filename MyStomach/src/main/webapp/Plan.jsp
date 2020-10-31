@@ -18,8 +18,8 @@
                     ${sa.time}
                     ${sa.foods}
                     <br>
-                    ${sa1.time}
-                    ${sa1.foods}
+                    ${sa.time}
+                    ${sa.foods}
                 </td>
             </tr></table>
     <c:forEach items="${sa.time}" <br>

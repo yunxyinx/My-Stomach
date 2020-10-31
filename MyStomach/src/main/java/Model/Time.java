@@ -11,13 +11,26 @@ package Model;
  */
 public class Time {
     private String Time;
+    private String foods;
+
+    public String getFoods() {
+        return foods;
+    }
+
+    public void setFoods(String foods) {
+        this.foods = foods;
+    }
+    
+    
 
     public Time() {
     }
 
-    public Time(String Time) {
+    public Time(String Time, String foods) {
         this.Time = Time;
+        this.foods = foods;
     }
+    
 
     public String getTime() {
         return Time;

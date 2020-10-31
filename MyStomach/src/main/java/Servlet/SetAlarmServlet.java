@@ -5,11 +5,14 @@
  */
 package Servlet;
 
+import Entity.Menu;
 import Model.Calories;
-import Model.SetAlarm;
+import Model.Time;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,22 +35,29 @@ public class SetAlarmServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        LocalTime time = LocalTime.now();
-        SetAlarm sa = new SetAlarm();
-        SetAlarm sa1 = new SetAlarm();
-
-        sa.setFoods(request.getParameter("foods"));
-        sa1.setFoods(request.getParameter("foods1"));
-        sa.setTime(request.getParameter("time"));
-        sa1.setTime(request.getParameter("time1"));
-        request.setAttribute("sa", sa);
-        request.setAttribute("sa1", sa1);
         
-        Calories cal = new Calories();
-        System.out.println("----------" + cal.getMeal());
-        String meal = request.getParameter("meal");
-        int m = Integer.parseInt(meal);
-        request.setAttribute("meal", meal);
+        Menu [] menuDB = new Menu[10];
+        
+        LocalTime time = LocalTime.now();
+        Time [] sa = new Time[10];
+        System.out.println(request.getParameter("foods"));
+        System.out.println("*____________________");
+        System.out.println(request.getParameter("time"));
+        System.out.println("_______________*");
+
+
+        sa[0].setFoods(request.getParameter("food"));
+        sa[0].setTime(request.getParameter("time"));
+
+
+        
+        for (int i = 0; i < sa.length; i++) {
+           if(sa[i] != null)
+            menuDB[0].setFood("food"+i);
+            sa[0].setTime("time"+i);
+        }
+        request.setAttribute("sa", sa);
+
         
         request.getRequestDispatcher("/Plan.jsp").forward(request, response);
     }
