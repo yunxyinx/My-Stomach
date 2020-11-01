@@ -20,6 +20,18 @@
         <servlet-name>CategorieServlet</servlet-name>
         <servlet-class>Servlet.CategorieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>dietFoodServlet</servlet-name>
+        <servlet-class>Servlet.dietFoodServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>normalFoodServlet</servlet-name>
+        <servlet-class>Servlet.normalFoodServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>weightGainFoodServlet</servlet-name>
+        <servlet-class>Servlet.weightGainFoodServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SetAlarmServlet</servlet-name>
         <url-pattern>/SetAlarm</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>CategorieServlet</servlet-name>
         <url-pattern>/Categorie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dietFoodServlet</servlet-name>
+        <url-pattern>/dietFood</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>normalFoodServlet</servlet-name>
+        <url-pattern>/normalFood</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>weightGainFoodServlet</servlet-name>
+        <url-pattern>/weightGainFood</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
