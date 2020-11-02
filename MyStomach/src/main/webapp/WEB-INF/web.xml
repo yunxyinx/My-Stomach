@@ -13,14 +13,6 @@
         <servlet-class>Servlet.ListServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CategoryServlet</servlet-name>
-        <servlet-class>Servlet.CategoryServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CategorieServlet</servlet-name>
-        <servlet-class>Servlet.CategorieServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>dietFoodServlet</servlet-name>
         <servlet-class>Servlet.dietFoodServlet</servlet-class>
     </servlet>
@@ -31,6 +23,10 @@
     <servlet>
         <servlet-name>weightGainFoodServlet</servlet-name>
         <servlet-class>Servlet.weightGainFoodServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PlanServlet</servlet-name>
+        <servlet-class>Servlet.PlanServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SetAlarmServlet</servlet-name>
@@ -45,14 +41,6 @@
         <url-pattern>/List</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CategoryServlet</servlet-name>
-        <url-pattern>/Category</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CategorieServlet</servlet-name>
-        <url-pattern>/Categorie</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>dietFoodServlet</servlet-name>
         <url-pattern>/dietFood</url-pattern>
     </servlet-mapping>
@@ -63,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>weightGainFoodServlet</servlet-name>
         <url-pattern>/weightGainFood</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlanServlet</servlet-name>
+        <url-pattern>/Plan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

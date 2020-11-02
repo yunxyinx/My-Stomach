@@ -15,8 +15,8 @@
     <body>
     <center>
         <h1>อาหารเพิ่มน้ำหนัก</h1>
-         
+
         <p><a href ="Category.jsp">Back</a></p>
     </center>
-    </body>
+</body>
 </html>
