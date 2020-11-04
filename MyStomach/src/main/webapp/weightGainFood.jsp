@@ -15,7 +15,14 @@
     <body>
     <center>
         <h1>อาหารเพิ่มน้ำหนัก</h1>
-
+        <table>
+            <c:forEach var="menu" items="${weightGainFood}">
+                <tr>
+                    <td><c:out value="${menu.food}"/></td>
+                    <td><c:out value="${menu.calorie}"/></td>
+                </tr>
+            </c:forEach>
+        </table>
         <p><a href ="Category.jsp">Back</a></p>
     </center>
 </body>

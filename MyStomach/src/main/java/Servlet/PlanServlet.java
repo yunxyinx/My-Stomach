@@ -8,6 +8,7 @@ package Servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +32,27 @@ public class PlanServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         Enumeration<String> params = request.getParameterNames();
         try (PrintWriter out = response.getWriter()) {
             while (params.hasMoreElements()) {
-                out.println("<p>" + params.nextElement());
+//                out.println("<p>" + params.nextElement());
+
+                String paramName = params.nextElement();
+                out.println("<p>" + paramName + ": ");
+                String[] values = request.getParameterValues(paramName);
+                for (String value : values) {
+                    out.println(value + "<br>");
+                }
+                out.println(request.getParameter(paramName));
+
+                Map<String, String[]> paramMap = request.getParameterMap();
+                for (Map.Entry<String, String[]> entry : paramMap.entrySet()) {
+                    out.println(entry.getKey() + ":" + entry.getValue() + "<br>");
+                }
+
+                request.getParameter("set");
+                request.getRequestDispatcher("Plan.jsp").forward(request, response);
             }
         }
     }
