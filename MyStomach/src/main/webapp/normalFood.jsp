@@ -15,11 +15,14 @@
     <body>
     <center>
         <h1>อาหารทั่วไป</h1>
-        
-            <c:forEach items="${listMenu}" var="menu">
-                <option>${menu.food}</option>
+        <table>
+            <c:forEach var="menu" items="${normalFood}">
+                <tr>
+                    <td><c:out value="${menu.food}"/></td>
+                    <td><c:out value="${menu.calorie}"/></td>
+                </tr>
             </c:forEach>
-        
+        </table>
         <p><a href ="Category.jsp">Back</a></p>
     </center>
 </body>

@@ -9,22 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="bootstrap-4.5.0-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bootstrap-4.5.0-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <title>JSP Page</title>
     </head>
     <body>
+        <jsp:include page="Component/navBar.jsp"/>
     <center>
         <h1>Category</h1>
         <hr><p>
-        <form method="GET" action="CategorieServlet">
-        <label for="category">Choose a category:</label>
-        <select name="category" id="category">
-            <option value="อาหารทั่วไป">อาหารทั่วไป</option>
-            <option value="อาหารลดน้ำหนัก">อาหารลดน้ำหนัก</option>
-            <option value="อาหารเพิ่มน้ำหนัก">อาหารเพิ่มน้ำหนัก</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">
-        </form>
+            Choose category !
+                <br><br>
+                <a disabled" href="dietFood">อาหารลดน้ำหนัก</a> | 
+                <a href="normalFood">อาหารทั่วไป</a> | 
+                <a href="weightGainFood">อาหารเพิ่มน้ำหนัก</a>
+                </br>
+        </div>
     </center>
 </body>
 </html>
