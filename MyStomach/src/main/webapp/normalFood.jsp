@@ -11,15 +11,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+         <style> 
+            h4 { 
+                display: flex; 
+                flex-direction: row; 
+            } 
+
+            h4:before, 
+            h4:after { 
+                content: ""; 
+                flex: 1 1; 
+                border-bottom: 2px solid #000; 
+                margin: auto; 
+            } 
+
+            img { 
+                height: 100px; 
+                width: 100px; 
+                border-radius: 50%; 
+            } 
+        </style> 
     </head>
     <body>
     <center>
         <h1>อาหารทั่วไป</h1>
+        <h4><b><em>&nbsp;รายการอาหารทั้งหมด&nbsp;</em></b></h4>
         <table>
             <c:forEach var="menu" items="${normalFood}">
                 <tr>
                     <td><c:out value="${menu.food}"/></td>
-                    <td><c:out value="${menu.calorie}"/></td>
+                    <td><c:out value="${menu.calorie}"/> &ndash; cal</td>
                 </tr>
             </c:forEach>
         </table>

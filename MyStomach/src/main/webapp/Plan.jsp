@@ -12,17 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <table>
-            <tr>
-                <td>
-                    ${sa.time}
-                    ${sa.foods}
-                    <br>
-                    ${sa.time}
-                    ${sa.foods}
-                </td>
-            </tr></table>
-    <c:forEach items="${sa.time}" <br>
-    </c:forEach> 
+        ${s}
+        ${menu}
+
 </body>
 </html>

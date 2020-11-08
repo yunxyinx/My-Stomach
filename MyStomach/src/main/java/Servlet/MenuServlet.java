@@ -5,10 +5,13 @@
  */
 package Servlet;
 
+import Entity.Category;
 import Entity.Menu;
+import Model.Time;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.util.Collections.list;
+import java.util.Enumeration;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -37,18 +40,28 @@ public class MenuServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Time sa = new Time();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestJpaMenuPU");
         EntityManager em = emf.createEntityManager();
+        sa.setTime(request.getParameter("time"));
+        request.setAttribute("sa", sa);
         
-        Query all = em.createNamedQuery("Menu.findAll");
-        Query name = em.createNamedQuery("Menu.findByFood");
+        String cat = request.getParameter("catagory"); //รับว่าจะเอาประเภทอะไร
+        
+        //เอาประเภทมาแสดงก่อน
+        Query category = em.createQuery("SELECT c FROM Category c");
+        List<Category> categories = category. getResultList();
+        
+        request.setAttribute("category", categories);
 
-        String sql = " SELECT m FROM Menu m WHERE m.food like :food ";
-        Query food = em.createQuery(sql);
-        food.setParameter("food" , "ข้าว%");
-        request.setAttribute("listMenu", food.getResultList());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/SetAlarm.jsp");
-            dispatcher.forward(request, response);
+        if (cat != null) {
+            Query food = em.createQuery("SELECT m FROM Menu m WHERE m.categorycategoryID.categoryID = :categoryID");
+            food.setParameter("categoryID", Integer.parseInt(cat));
+            List<Menu> menus = food.getResultList();
+            request.setAttribute("listMenu", menus);
+        }
+
+        request.getRequestDispatcher("SetAlarm.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

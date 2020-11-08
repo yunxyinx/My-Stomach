@@ -31,30 +31,19 @@ public class PlanServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-        Enumeration<String> params = request.getParameterNames();
         try (PrintWriter out = response.getWriter()) {
+            Enumeration<String> params = request.getParameterNames();
+            String[] menus = request.getParameterValues("s");
             while (params.hasMoreElements()) {
-//                out.println("<p>" + params.nextElement());
-
-                String paramName = params.nextElement();
-                out.println("<p>" + paramName + ": ");
-                String[] values = request.getParameterValues(paramName);
-                for (String value : values) {
-                    out.println(value + "<br>");
+                if (menus != null) {
+                    for (String s : menus) {
+                        out.println(s + "<br>");
+                    }
                 }
-                out.println(request.getParameter(paramName));
-
-                Map<String, String[]> paramMap = request.getParameterMap();
-                for (Map.Entry<String, String[]> entry : paramMap.entrySet()) {
-                    out.println(entry.getKey() + ":" + entry.getValue() + "<br>");
-                }
-
-                request.getParameter("set");
-                request.getRequestDispatcher("Plan.jsp").forward(request, response);
             }
         }
+
+        request.getRequestDispatcher("Plan.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

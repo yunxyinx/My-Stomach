@@ -40,7 +40,7 @@ public class dietFoodServlet extends HttpServlet {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestJpaMenuPU");
         EntityManager em = emf.createEntityManager();
-
+        
         Query diet = em.createQuery("SELECT m FROM Menu m WHERE m.categorycategoryID.categoryID = 2");
         request.setAttribute("dietFood", diet.getResultList());
 
