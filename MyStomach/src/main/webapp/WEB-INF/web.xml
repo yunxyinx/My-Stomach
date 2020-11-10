@@ -28,6 +28,22 @@
         <servlet-name>PlanServlet</servlet-name>
         <servlet-class>Servlet.PlanServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>Servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <servlet-class>Servlet.EditProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SetAlarmServlet</servlet-name>
         <url-pattern>/SetAlarm</url-pattern>
@@ -55,6 +71,22 @@
     <servlet-mapping>
         <servlet-name>PlanServlet</servlet-name>
         <url-pattern>/Plan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
