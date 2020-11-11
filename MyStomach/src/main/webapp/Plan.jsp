@@ -11,9 +11,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        ${s}
-        ${menu}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>        
+        <c:forEach items="${ml}" var="m">
+            ${m.meal}<br>
+            ${m.time}<br>
+            ${m.menu.food}<br>
+            ${m.menu.calorie}
+            <hr>
+        </c:forEach>
 
-</body>
+        <h1 class="header">ALL CALORIES</h1>
+        <b> 
+            = ${allcal}</b>
+
+    </body>
+</html>
 </html>
