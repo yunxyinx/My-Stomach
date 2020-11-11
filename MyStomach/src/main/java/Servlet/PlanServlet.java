@@ -5,10 +5,17 @@
  */
 package Servlet;
 
+import Entity.Menu;
+import Model.Plan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,17 +38,31 @@ public class PlanServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            Enumeration<String> params = request.getParameterNames();
-            String[] menus = request.getParameterValues("s");
-            while (params.hasMoreElements()) {
-                if (menus != null) {
-                    for (String s : menus) {
-                        out.println(s + "<br>");
-                    }
-                }
-            }
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestJpaMenuPU");
+        EntityManager em = emf.createEntityManager();
+
+        String[] meal = request.getParameterValues("meal");
+        String[] time = request.getParameterValues("time");
+        String[] menu = request.getParameterValues("menu");
+        
+        List<Plan> ml = new ArrayList();
+        int cal = 0;
+
+        for (String me : menu) {
+            Menu m = em.find(Menu.class, Integer.parseInt(me));
+            ml.add(new Plan(null, m, null));
+            cal += m.getCalorie();
         }
+        for (int i = 0; i < ml.size(); i++) {
+            ml.get(i).setMeal(meal[i]);
+            ml.get(i).setTime(time[i]);
+        }
+        
+        request.setAttribute("allcal", cal);
+        request.setAttribute("ml", ml);
 
         request.getRequestDispatcher("Plan.jsp").forward(request, response);
     }
