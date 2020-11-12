@@ -63,6 +63,7 @@ public class LoginServlet extends HttpServlet {
                     response.addCookie(c2);
                 }
                 System.out.println("x");
+                
                 request.getRequestDispatcher("/Index.jsp").forward(request, response);
 
             } else {

@@ -1,6 +1,6 @@
 <%-- 
     Document   : RegisterComplete
-    Created on : Nov 10, 2020, 4:59:54 PM
+    Created on : Nov 6, 2020, 3:10:56 AM
     Author     : graciedaily
 --%>
 
@@ -17,17 +17,27 @@
         <title>Register Complete</title>
     </head>
     <body>
-<br><br><br><br><br>
+        <br><br><br><br><br>
         <div align="center">
             <div class="whitebox">
                 <br><br>
-                <h1>Sign up Complete</h1><br>
-                <h3>Welcome <span style="color: #2ABBCF; font-weight: bold;">${member.username}</span></h3><br>
+                <h1 style="color: #75DDF4">Sign up Complete</h1><br>
+                <h3 style="color:#1DC7EC;font-weight: bold;"> Welcome <span style="color: #1DC7EC; font-weight: bold;">${member.username}</span> </h3>
+
+                <br>
                 <p>Thank you for taking time to register.<br>
-                    We hope you will enjoy MyStomach </p>
+                    We hope you will enjoy My Stomach ! </p>
                 <br><br>
-                <a href="Login.jsp"><button type="Go to Profile!" class="editprofile">Login</button></a>
-                    
+                <a href="Login.jsp">
+                    <!--<button type="Go to Profile!" class="editprofile">Login</button></a>-->
+                    <button type="Go to Profile!" class="editprofile" 
+                            style="border-radius: 5rem;
+                            font-size: 1.2rem;
+                            padding: .1375rem .875rem;
+                            color: #FFF;
+                            background-color: #75DDF4;
+                            border: 1px solid #75DDF4;">Login</button>
+
             </div>
         </div>
     </body>

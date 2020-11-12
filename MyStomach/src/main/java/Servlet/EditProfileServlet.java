@@ -5,9 +5,11 @@
  */
 package Servlet;
 
-import Model.RegisterDAO;
 import Model.Users;
 import java.io.IOException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,28 +34,33 @@ public class EditProfileServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Grace_GracieLogin_war_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
 
         String fname = request.getParameter("Fname");
         String lname = request.getParameter("Lname");
         int profile = Integer.parseInt(request.getParameter("profile"));
         int height = Integer.parseInt(request.getParameter("Height"));
         int weight = Integer.parseInt(request.getParameter("Weight"));
-        Users registerUser = new Users();
+        
         //Using Java Beans - An easiest way to play with group of related data
         HttpSession s1 = request.getSession();
+
+        String user = (String) s1.getAttribute("Username");
+        Users registerUser = em.find(Users.class,user);
+        
         registerUser.setFname(fname);
         registerUser.setLname(lname);
         registerUser.setProfile(profile);
-        String user = (String) s1.getAttribute("Username");
-        registerUser.setUsername(user);
+//        registerUser.setUsername(user);
         registerUser.setHeight(height);
         registerUser.setWeight(weight);
 
-        RegisterDAO registerDao = new RegisterDAO();
+        em.getTransaction().begin();
+        em.persist(registerUser);
+        em.getTransaction().commit();
 
         //The core Logic of the Registration application is present here. We are going to insert user data in to the database.
-        String userRegistered = registerDao.EditUser(registerUser);
-
         System.out.println(fname);
         System.out.println(lname);
         System.out.println(profile);

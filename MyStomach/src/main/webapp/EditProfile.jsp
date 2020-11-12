@@ -1,6 +1,6 @@
 <%-- 
     Document   : EditProfile
-    Created on : Nov 10, 2020, 4:56:37 PM
+    Created on : Nov 6, 2020, 6:48:44 PM
     Author     : graciedaily
 --%>
 
@@ -17,26 +17,45 @@
         <title>Edit Profile</title>
     </head>
     <body>
-        <h1>Edit Profile</h1>
-        
-        <img src="images/${User.profile}.png" heigth="100" width="200">
+        <br>
+        <div align="center">
+            <h1 style="color:#FFC0DC">Edit Profile</h1>
+        </div>
+
+        <br>
+        <div align="center">
+            <img src="images/${User.profile}.png" heigth="100" width="200">
+        </div>
+        <br>
         <form action="EditProfileServlet" method="get">
-            <input type="text" name="Fname" id="Fname" class="form-control border-gray border" placeholder="Firstname" value="${User.fname}" required=""  > : FirstName
-                   
+            <div class="form-group form-group-feedback form-group-feedback-right"  >
+                <h5 style="color:#FFA5CC">FirstName</h5>
 
-                    <div class="form-group form-group-feedback form-group-feedback-right" >
-                        <input type="text" name="Lname" id="Lname" class="form-control border-gray border" placeholder="Lastname" value="${User.lname}" required="" > : LastName
-                    </div>
+                <input type="text" name="Fname" id="Fname" class="form-control border-gray border"  placeholder="Firstname" value="${User.fname}" required=""  > 
 
-                    
-                    <div class="form-group form-group-feedback form-group-feedback-right" >
-                        <input type="height" name="Height" id="Height" class="form-control border-gray border" placeholder="Height" value="${User.height}" required=""  > : Height
-                    </div>                
-                    <div class="form-group form-group-feedback form-group-feedback-right" >
-                        <input type="weight" name="Weight" id="Weight" class="form-control border-gray border" placeholder="Weight" value="${User.weight}" required=""  > : Weight
-                    </div>
-                    <input type="number" name="profile" min="1" max="5" value="${User.profile}">
-                 <input type="submit" value="edit">
-               </form>
+                <br>
+                <div class="form-group form-group-feedback form-group-feedback-right" >
+                    <h5 style="color:#FFA5CC">LastName</h5>
+                    <input type="text" name="Lname" id="Lname" class="form-control border-gray border" placeholder="Lastname" value="${User.lname}" required="" > 
+                </div>
+
+
+                <div class="form-group form-group-feedback form-group-feedback-right" >
+                    <h5 style="color:#FFA5CC">Height</h5>
+                    <input type="height" name="Height" id="Height" class="form-control border-gray border" placeholder="Height" value="${User.height}" required=""  > 
+                </div>                
+                <div class="form-group form-group-feedback form-group-feedback-right" >
+                    <h5 style="color:#FFA5CC">Weight</h5>
+                    <input type="weight" name="Weight" id="Weight" class="form-control border-gray border" placeholder="Weight" value="${User.weight}" required=""  > 
+                </div>
+                <br>
+                <input type="number" name="profile" min="1" max="5" value="${User.profile}">
+                <br><br>
+                <div align="center">
+                    <button type="submit" class="btn btn-outline-secondary" value="edit" style="color:#FFC0DC; border-color:#FFC0DC; width: 500px; ">
+                        Edit 
+                    </button>
+                </div>
+        </form>
     </body>
 </html>

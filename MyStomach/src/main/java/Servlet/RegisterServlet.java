@@ -5,9 +5,11 @@
  */
 package Servlet;
 
-import Model.RegisterDAO;
 import Model.Users;
 import java.io.IOException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,36 +32,40 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Grace_GracieLogin_war_1.0-SNAPSHOTPU");
+        EntityManager em = emf.createEntityManager();
+
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
         String fname = request.getParameter("Fname");
         String lname = request.getParameter("Lname");
         String email = request.getParameter("Email");
-        int height=Integer.parseInt(request.getParameter("Height"));
-        int weight=Integer.parseInt(request.getParameter("Weight"));
-        Users registerUser = new Users();
-        //Using Java Beans - An easiest way to play with group of related data
-        registerUser.setUsername(username);
-        registerUser.setPassword(password);
-        registerUser.setFname(fname);
-        registerUser.setLname(lname);
-        registerUser.setEmail(email);
-        registerUser.setHeight(height);
-        registerUser.setWeight(weight);
-
-        RegisterDAO registerDao = new RegisterDAO();
+        String height = request.getParameter("Height");
+        String weight = request.getParameter("Weight");
 
         //The core Logic of the Registration application is present here. We are going to insert user data in to the database.
-        String userRegistered = registerDao.registerUser(registerUser);
+        if (username != null) //On success, you can display a message to user on Home page
+        {
+            Users user = em.find(Users.class, username);
+            if (user == null) {
+                Users registerUser = new Users();
+                //Using Java Beans - An easiest way to play with group of related data
+                registerUser.setUsername(username);
+                registerUser.setPassword(password);
+                registerUser.setFname(fname);
+                registerUser.setLname(lname);
+                registerUser.setEmail(email);
+                registerUser.setHeight(Integer.parseInt(height));
+                registerUser.setWeight(Integer.parseInt(weight));
 
-        if (userRegistered.equals("SUCCESS")) //On success, you can display a message to user on Home page
-        {
-            request.getRequestDispatcher("/RegisterComplete.jsp").forward(request, response);
-        } else //On Failure, display a meaningful message to the User.
-        {
-            //request.setAttribute("errMessage", userRegistered);
-            request.getRequestDispatcher("/Register.jsp").forward(request, response);
+                em.getTransaction().begin();
+                em.persist(registerUser);
+                em.getTransaction().commit();
+                request.getRequestDispatcher("/RegisterComplete.jsp").forward(request, response);
+            }
         }
+        request.getRequestDispatcher("/Register.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
