@@ -46,9 +46,8 @@ public class MenuServlet extends HttpServlet {
         sa.setTime(request.getParameter("time"));
         request.setAttribute("sa", sa);
         
-        String cat = request.getParameter("catagory"); //รับว่าจะเอาประเภทอะไร
+        String cat = request.getParameter("catagory");
         
-        //เอาประเภทมาแสดงก่อน
         Query category = em.createQuery("SELECT c FROM Category c");
         List<Category> categories = category. getResultList();
         
